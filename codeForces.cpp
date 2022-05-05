@@ -3,33 +3,38 @@ using namespace std;
 int main()
 {
     int testCases = 1;
-    // cin>> testCases
-
-    string name;
-    int count = 0;
-    cin >> name;
-    sort(name.begin(), name.end());
-    cout << name << endl;
-    for (int i = 0; i < name.length(); i++)
+    // cin>> testCases;
+    while (testCases--)
     {
-        if (name[i] != name[i + 1])
+        int N, temp = 0;
+        cin >> N;
+        int arr[N];
+        for (int i = 0; i < N; i++)
         {
-            count++;
+            cin >> arr[i];
+        }
+        for (int i = N; i > 0; i--)
+        {
+            for (int j = 0; j < i - 1; j++)
+            {
+                if (arr[j] == 0)
+                {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        for (int k=0; k<N; k++){
+            cout << arr[k] << " ";
         }
     }
-    cout << count << endl;
-    if (count % 2 == 0)
-    {
-        cout << "CHAT WITH HER!";
-    }
-    else
-        cout << "IGNORE HIM!";
-
     return 0;
 }
 
 /*
-b j m m r w z
+1 5 0 7 4
+-> 1 5 4 7 0
 
 ------------------------------------------------------------------------------
 #include<bits/stdc++.h>
