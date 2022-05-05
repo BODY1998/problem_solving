@@ -6,9 +6,19 @@ int main()
     // cin>> testCases
 
     string name;
+    int count = 0;
     cin >> name;
-
-    if (name.length() % 2 == 0)
+    sort(name.begin(), name.end());
+    cout << name << endl;
+    for (int i = 0; i < name.length(); i++)
+    {
+        if (name[i] != name[i + 1])
+        {
+            count++;
+        }
+    }
+    cout << count << endl;
+    if (count % 2 == 0)
     {
         cout << "CHAT WITH HER!";
     }
@@ -19,7 +29,7 @@ int main()
 }
 
 /*
-
+b j m m r w z
 
 ------------------------------------------------------------------------------
 #include<bits/stdc++.h>
