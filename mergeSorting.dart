@@ -1,7 +1,17 @@
+// Merge Sorting Algorithm
 void main() {
-  List<int> fisrtList = [1, 3, 5, 8];
-  List<int> secondList = [2, 4, 7, 11];
-  print(merge(fisrtList, secondList));
+  List<int> sampleList = [12, 2, 52, 5, 8, 63];
+  print(mergeSort(sampleList));
+}
+
+// Devide and conquer
+List<int> mergeSort(List<int> list) {
+  if (list.length <= 1) return list;
+  int middleIndex = (list.length / 2).floor();
+  // recursion
+  List<int> leftList = mergeSort(list.sublist(0, middleIndex));
+  List<int> rightList = mergeSort(list.sublist(middleIndex));
+  return merge(leftList, rightList);
 }
 
 List<int> merge(List<int> list1, List<int> list2) {
@@ -25,6 +35,5 @@ List<int> merge(List<int> list1, List<int> list2) {
     mergedList.add(list2[j]);
     j++;
   }
-
   return mergedList;
 }
